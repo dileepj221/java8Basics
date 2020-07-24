@@ -8,7 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.java.feature.data.Student;
 import com.java.feature.data.StudentData;
+import com.java.feature.functionalinterfaces.BiConsumerExample;
 import com.java.feature.functionalinterfaces.ConsumerExample;
+import com.java.feature.functionalinterfaces.FunctionExample;
 import com.java.feature.functionalinterfaces.PredicateAndConsumerExample;
 import com.java.feature.functionalinterfaces.PredicateExample;
 import com.java.feature.functionalinterfaces.PredicateWithStudent;
@@ -17,6 +19,7 @@ import com.java.feature.functionalinterfaces.PredicateWithStudent;
 public class Java8Application {
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(Java8Application.class, args);
 		
 		//ConsumerExample from foreach loop
@@ -26,6 +29,9 @@ public class Java8Application {
 		// printStudents();
 		ConsumerExample.printNameAndActivities();
 		ConsumerExample.printNameAndActivitiesUsingCondition();
+		
+		//BiConsumer Example test
+		BiConsumerExample.runMethod();
 		
 		//Predicate test
 		System.out.println("Predicate Results");
@@ -44,6 +50,12 @@ public class Java8Application {
         System.out.println("Predicate/BiPredicate and Consumer example");
         List<Student> studentList = StudentData.getAllStudents();
         new PredicateAndConsumerExample().printNameAndActivities(studentList); //Calling after constructor initialization as it is not a static method.
+        
+        //FunctionExample test
+        FunctionExample.printResult();
+        System.out.println("Result :- "+FunctionExample.printFunctionalExample1());
+        
+        
 	}
 
 }
